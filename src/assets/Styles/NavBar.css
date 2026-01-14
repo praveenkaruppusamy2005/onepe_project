@@ -1,0 +1,221 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Orbitron:wght@400..900&display=swap');
+
+.header_main {
+    width: 100%;
+    background-color: #ffffff;
+    padding: 16px 0;
+    border-bottom: 1px solid #e5e7eb;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    font-family: "Fira Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.3s ease;
+}
+
+.header_main.scrolled {
+    background-color: #ffffff;
+    border-radius: 50px;
+    margin: 10px 20px 0;
+    width: calc(100% - 40px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-bottom:5px solid black;
+    border-right: 0.5px solid black;
+    border-top: 0.5px solid black;
+    border-left: 0.5px solid black;
+    padding: 12px 0;
+    
+}
+
+.navbar_container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 32px;
+    box-sizing: border-box;
+}
+
+/* Logo Section */
+.logo_section {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo_section:hover {
+    opacity: 0.8;
+}
+
+.logo_icon {
+    width: 24px;
+    height: 24px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.logo_icon::before {
+    content: '';
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.logo_text {
+    font-size: 20px;
+    font-weight: 600;
+    color: #1f2937;
+    margin-left: 4px;
+    font-family: "Fira Sans", sans-serif;
+}
+
+/* Navigation Links */
+.nav_links {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.nav_link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #000000;
+    font-size: 13px;
+    font-weight: 400;
+    padding: 1px 5px;
+    border-radius: 50px;
+    transition: all 0.2s ease;
+    background-color: #f3f4f6;
+    border: none;
+    white-space: nowrap;
+    width: 150px;
+    height: 40px;
+    justify-content: flex-start;
+    cursor: pointer;
+    font-family: "Fira Sans", sans-serif;
+}
+
+
+.nav_link:hover {
+    color: #000000;
+    background-color: #e5e7eb;
+}
+
+.nav_icon {
+    width: 35px;
+    height: 35px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.nav_icon svg {
+    width: 15px;
+    height: 15px;
+    color: #000000;
+}
+
+/* Active navigation link */
+.nav_link.active {
+    color: #000000;
+    background-color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+}
+
+.nav_link.active .nav_icon {
+    background-color: #ffffff;
+    border-color: #d1d5db;
+}
+
+.nav_link.active .nav_icon svg {
+    color: #000000;
+}
+
+/* Action Buttons */
+.action_buttons {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.login_btn {
+    background: none;
+    border: none;
+    color: #6b7280;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 8px 16px;
+    transition: color 0.2s ease;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.login_btn:hover {
+    color: #374151;
+}
+
+.demo_btn {
+    background-color: #3b82f6;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Fira Sans", sans-serif;
+}
+
+.demo_btn:hover {
+    background-color: #2563eb;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar_container {
+        padding: 0 16px;
+    }
+    
+    .nav_links {
+        display: none;
+    }
+    
+    .action_buttons {
+        gap: 12px;
+    }
+    
+    .demo_btn {
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+}
