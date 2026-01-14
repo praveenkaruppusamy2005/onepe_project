@@ -1,0 +1,21 @@
+<svg width="40" height="400" viewBox="0 0 40 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue 2D ribbon-like curve, similar to ippoPay example but vertical -->
+  <defs>
+    <linearGradient id="waveBlue" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#38bdf8" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M20 0
+       C 0 40, 40 80, 20 120
+       C 0 160, 40 200, 20 240
+       C 0 280, 40 320, 20 360
+       C 10 380, 30 400, 20 420"
+    fill="none"
+    stroke="url(#waveBlue)"
+    stroke-width="10"
+    stroke-linecap="round"
+  />
+</svg>

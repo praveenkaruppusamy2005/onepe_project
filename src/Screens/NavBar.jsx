@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { HiUsers, HiCog6Tooth, HiChartBar, HiBuildingOffice2 } from 'react-icons/hi2'
 import '../assets/Styles/NavBar.css'
+import onePeLogo from '../assets/Styles/OnePe_Whole.png'
 
 function NavBar() {
     const [activeSection, setActiveSection] = useState('home')
@@ -47,8 +48,7 @@ function NavBar() {
             <div className="navbar_container">
                 {/* Logo Section */}
                 <button onClick={() => scrollToSection('home')} className="logo_section">
-                    <div className="logo_icon"></div>
-                    <span className="logo_text">OnePe</span>
+                    <img src={onePeLogo} alt="OnePe" className="logo_image" />
                 </button>
 
                 {/* Navigation Links */}

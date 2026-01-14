@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import '../assets/Styles/SavingsEstimator.css'
 
 function SavingsEstimator() {
@@ -6,6 +6,33 @@ function SavingsEstimator() {
   const [billsPerDay, setBillsPerDay] = useState(100)
   const [paperSize, setPaperSize] = useState(50)
   const [paperQuality, setPaperQuality] = useState('standard')
+
+  const titleRef = useRef(null)
+  const descRef = useRef(null)
+  const statsRef = useRef(null)
+  const buttonRef = useRef(null)
+  const calculatorRef = useRef(null)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate')
+          }
+        })
+      },
+      { threshold: 0.1 }
+    )
+
+    if (titleRef.current) observer.observe(titleRef.current)
+    if (descRef.current) observer.observe(descRef.current)
+    if (statsRef.current) observer.observe(statsRef.current)
+    if (buttonRef.current) observer.observe(buttonRef.current)
+    if (calculatorRef.current) observer.observe(calculatorRef.current)
+
+    return () => observer.disconnect()
+  }, [])
 
   // Calculate savings
   const calculateSavings = () => {
@@ -27,15 +54,15 @@ function SavingsEstimator() {
     <div className="content-section">
       <div className="savings-wrapper">
         <div className="savings-info">
-          <h2 className="payback-title">
+          <h2 className="payback-title" ref={titleRef}>
             Pays for Itself in <span className="highlight-blue">90 Days.</span>
           </h2>
-          <p className="payback-description">
+          <p className="payback-description" ref={descRef}>
             The average retail store spends ₹2,000–₹5,000 monthly just on thermal paper rolls and printer ink. OnePe 
             eliminates this cost entirely while driving revenue growth.
           </p>
 
-          <div className="stats-grid">
+          <div className="stats-grid" ref={statsRef}>
             <div className="stat-card">
               <div className="stat-value">60%</div>
               <div className="stat-label">Reduction in Billing Costs</div>
@@ -46,10 +73,10 @@ function SavingsEstimator() {
             </div>
           </div>
 
-          <button className="roi-analysis-btn">View Detailed ROI Analysis</button>
+          <button className="roi-analysis-btn" ref={buttonRef}>View Detailed ROI Analysis</button>
         </div>
 
-        <div className="estimator-container">
+        <div className="estimator-container" ref={calculatorRef}>
           <div className="estimator-header">
             <h2>Savings Estimator</h2>
             <button className="roi-engine-btn">ROI ENGINE</button>

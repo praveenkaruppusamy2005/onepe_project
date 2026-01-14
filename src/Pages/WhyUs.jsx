@@ -1,6 +1,6 @@
-import Gemini1 from '../assets/Gemini1.png'
-import Gemini2 from '../assets/Gemini2.png'
-import Gemini3 from '../assets/Gemini3.png'
+import PaymentTerminal from '../assets/Payment_by_card_using_a_terminal_Illustration-Picsart-AiImageEnhancer-removebg-preview.png'
+import DataScience from '../assets/Business_model_and_income_growth_isometric_illustration-removebg-preview.png'
+import DataAnalysis from '../assets/Download_illustration_of_business_man_doing_data_analysis_using_magnifying_glass__data_analytics_makes_predictions_of_future_business_for_free-removebg-preview.png'
 import '../assets/Styles/WhyUs.css'
 import { useEffect, useRef } from 'react'
 
@@ -45,30 +45,34 @@ export default function WhyUs() {
 
       <div className="whyus-grid">
         <div className="whyus-item left" ref={leftRef}>
-          <h3>Paper Dead-Ends</h3>
-          <p className="sub">
-            Bills are printed and discarded. No record of the customer,
-         
-            no way to re-engage, and significant recurring costs.
-          </p>
-          <img src={Gemini1} alt="Paper Dead-Ends" />
+          <div className="card-content-left">
+            <h3>Paper Dead-Ends</h3>
+            <p className="sub">
+              Bills are printed and discarded. No record of the customer,
+              no way to re-engage, and significant recurring costs.
+            </p>
+          </div>
+          <img src={PaymentTerminal} alt="Paper Dead-Ends" className="card-image-right" />
         </div>
 
         <div className="whyus-item center" ref={centerRef}>
-          <img src={Gemini2} alt="Siloed Intelligence" />
-          <h3>Siloed Intelligence</h3>
-        
-          <p className="sub">
-            Existing ERPs track inventory but fail to capture the behavioral insights needed for predictive growth.
-          </p>
+          <div className="card-content-left">
+            <h3>Siloed Intelligence</h3>
+            <p className="sub">
+              Existing ERPs track inventory but fail to capture the behavioral insights needed for predictive growth.
+            </p>
+          </div>
+          <img src={DataScience} alt="Siloed Intelligence" className="card-image-right" />
         </div>
 
         <div className="whyus-item right" ref={rightRef}>
-          <h3>Friction-Heavy Returns</h3>
-          <p className="sub">
-            Manual reconciliations and fragmented payment records lead to operational bottlenecks and revenue leakage.
-          </p>
-          <img src={Gemini3} alt="Friction-Heavy Returns" />
+          <div className="card-content-left">
+            <h3>Friction-Heavy Returns</h3>
+            <p className="sub">
+              Manual reconciliations and fragmented payment records lead to operational bottlenecks and revenue leakage.
+            </p>
+          </div>
+          <img src={DataAnalysis} alt="Friction-Heavy Returns" className="card-image-right" />
         </div>
       </div>
     </section>

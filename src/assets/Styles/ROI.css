@@ -6,7 +6,7 @@
 }
 
 .roi-container {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0f0f0f 100%);
   border-radius: 32px;
   padding: 80px 60px;
   max-width: 96vw;
@@ -34,14 +34,14 @@
 .roi-header h2 {
   font-size: 3.2rem;
   font-weight: 700;
-  color: #1e293b;
+  color: #ffffff;
   margin-bottom: 20px;
   font-family: "Fira Sans", sans-serif;
 }
 
 .roi-header p {
   font-size: 1.1rem;
-  color: #64748b;
+  color: #c0c0c0;
   line-height: 1.6;
   font-family: "Fira Sans", sans-serif;
   max-width: 700px;
@@ -52,16 +52,16 @@
 .bento-grid {
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: minmax(180px, auto);
-  gap: 0.875rem;
-  max-width: 1200px;
+  grid-auto-rows: minmax(140px, auto);
+  gap: 0.75rem;
+  max-width: 900px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .bento-grid {
     grid-template-columns: repeat(3, 1fr);
-    gap: 0.875rem;
+    gap: 0.75rem;
   }
   
   /* Card 1: Spans 2 columns */
@@ -94,10 +94,10 @@
     grid-row: span 1;
   }
   
-  /* Card 6: Spans 1 column, 2 rows (tall) */
+  /* Card 6: Spans 1 column, 1 row (same height as card 5) */
   .bento-card-6 {
     grid-column: span 1;
-    grid-row: span 2;
+    grid-row: span 1;
   }
 }
 
@@ -127,75 +127,181 @@
 .bento-card {
   position: relative;
   overflow: hidden;
-  border-radius: 0.75rem;
-  border-top: 1px solid #000000;
-  border-left: 1px solid #000000;
-  border-bottom: 5px solid #000000;
-  border-right: 4px solid #000000;
+  border-radius: 1.25rem;
+  border: none;
   
-  padding: 1.5rem;
+  padding: 0;
   box-shadow: none;
-  opacity: 1;
-  transform: translateY(0);
-  min-height: 180px;
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  min-height: 140px;
+  transition: all 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-4px) scale(1);
 }
 
 .bento-card.animate {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), 
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .bento-card-content {
   position: relative;
   z-index: 10;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 1rem;
   height: 100%;
   align-items: center;
+  text-align: left;
+  justify-content: space-between;
+  padding: 1.5rem;
+  overflow: visible;
+}
+
+.bento-text-content {
+  flex: 1;
+  z-index: 2;
+}
+
+.bento-3d-image {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4)) brightness(0.85) contrast(1.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.bento-card:hover .bento-3d-image {
+  transform: scale(1.05);
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.5)) brightness(0.9) contrast(1.1);
+}
+
+/* Image positioning variations */
+.bento-card.image-top-left .bento-card-content {
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.bento-card.image-top-left .bento-3d-image {
+  align-self: flex-start;
+  margin-bottom: 1rem;
+}
+
+.bento-card.image-top-right .bento-card-content {
+  flex-direction: row-reverse;
+}
+
+.bento-card.image-bottom-right .bento-card-content {
+  flex-direction: column-reverse;
+  align-items: flex-end;
+}
+
+.bento-card.image-bottom-right .bento-3d-image {
+  align-self: flex-end;
+  margin-top: 1rem;
+}
+
+.bento-card.image-center-right .bento-card-content {
+  flex-direction: row-reverse;
+}
+
+.bento-card.image-center-left .bento-card-content {
+  flex-direction: row;
+}
+
+.bento-card.image-bottom-center .bento-card-content {
+  flex-direction: column-reverse;
+  align-items: center;
   text-align: center;
-  justify-content: center;
+}
+
+.bento-card.image-bottom-center .bento-3d-image {
+  margin-top: 1rem;
+}
+
+/* Larger image for digital payment card */
+.bento-card.large-image .bento-3d-image {
+  width: 160px;
+  height: 160px;
+}
+
+.bento-card.image-bottom-left .bento-card-content {
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.bento-card.image-bottom-left .bento-3d-image {
+  align-self: flex-start;
+  margin-top: 1rem;
 }
 
 .bento-icon-circle {
+  position: absolute;
+  bottom: -30px;
+  right: -30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 4.5rem;
-  height: 4.5rem;
+  width: 10rem;
+  height: 10rem;
   border-radius: 50%;
-  background: white;
-  border: 2px solid #000000;
-  margin-bottom: 0.75rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: transparent;
+  border: none;
+  transition: transform 0.3s ease, filter 0.3s ease;
+  z-index: 1;
+}
+
+.bento-card:hover .bento-icon-circle {
+  transform: scale(1.05);
 }
 
 .bento-icon-svg {
-  width: 2.25rem;
-  height: 2.25rem;
-  stroke-width: 2;
-  color: #000000;
+  width: 6rem;
+  height: 6rem;
+  stroke-width: 1.5;
+  color: var(--icon-color, #f1faee);
+  opacity: 0.15;
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0px var(--icon-color));
+}
+
+.bento-card:hover .bento-icon-svg {
+  opacity: 0.4;
+  filter: drop-shadow(0 0 20px var(--icon-color)) 
+          drop-shadow(0 0 40px var(--icon-color))
+          drop-shadow(0 0 60px var(--icon-color));
 }
 
 .bento-title {
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  color: #000000;
-  margin: 0 0 0.5rem 0;
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
   font-family: "Fira Sans", sans-serif;
-  text-align: center;
+  text-align: left;
   line-height: 1.3;
   letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
 }
 
 .bento-description {
-  font-size: 0.875rem;
-  color: #4b5563;
-  line-height: 1.6;
+  font-size: 0.8rem;
+  color: #a0a0a0;
+  line-height: 1.5;
   margin: 0;
   font-family: "Fira Sans", sans-serif;
-  text-align: center;
-  max-width: 100%;
+  text-align: left;
+  max-width: 85%;
+  position: relative;
+  z-index: 2;
 }
 
 /* Card */
@@ -223,135 +329,22 @@
   transition-delay: 0.1s;
 }
 
-.roi-card:nth-child(1).animate {
-  transition-delay: 0.1s;
-}
-
-/* Icon */
-.roi-icon {
-  width: 100px;
-  height: 100px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 24px;
-  background: white;
-  border-radius: 50%;
-  border: 2px solid #1e293b;
-  padding: 20px;
-  box-shadow: 0 2px 0 0 #1e293b, 0 4px 8px rgba(0, 0, 0, 0.1);
-  position: relative;
-}
-
-.roi-icon img {
-  width: 60px;
-  height: 60px;
-  object-fit: contain;
-}
-
-.roi-card h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1e293b;
-  margin-bottom: 16px;
-  font-family: "Fira Sans", sans-serif;
-}
-
-.roi-card p {
-  font-size: 1rem;
-  color: #334155;
-  line-height: 1.6;
-  font-family: "Fira Sans", sans-serif;
-  max-width: 320px;
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .roi-container {
-    padding: 60px 40px;
-  }
-  
-  .roi-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
-  
-  .roi-header h2 {
-    font-size: 2.8rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .roi-container {
-    padding: 40px 20px;
-  }
-  
-  .roi-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  
-  .roi-header h2 {
-    font-size: 2.2rem;
-  }
-  
-  .roi-header p {
-    font-size: 1rem;
-  }
-  
-  .roi-card {
-    padding: 28px 24px;
-  }
-}
-
-@media (max-width: 480px) {
-  .roi-header h2 {
-    font-size: 1.8rem;
-  }
-  
-  .roi-icon {
-    width: 48px;
-    height: 48px;
-  }
-}
-
-
 .bento-card:nth-child(2).animate {
   transition-delay: 0.2s;
 }
 
 .bento-card:nth-child(3).animate {
-  transition-delay: 0.3s;
+  transition-delay: 0.25s;
 }
 
 .bento-card:nth-child(4).animate {
-  transition-delay: 0.4s;
-}
-
-.bento-card:nth-child(5).animate {
-  transition-delay: 0.5s;
-}
-
-.bento-card:nth-child(6).animate {
-  transition-delay: 0.6s;
-}
-
-.roi-card:nth-child(2).animate {
-  transition-delay: 0.2s;
-}
-
-.roi-card:nth-child(3).animate {
   transition-delay: 0.3s;
 }
 
-.roi-card:nth-child(4).animate {
+.bento-card:nth-child(5).animate {
+  transition-delay: 0.35s;
+}
+
+.bento-card:nth-child(6).animate {
   transition-delay: 0.4s;
-}
-
-.roi-card:nth-child(5).animate {
-  transition-delay: 0.5s;
-}
-
-.roi-card:nth-child(6).animate {
-  transition-delay: 0.6s;
 }

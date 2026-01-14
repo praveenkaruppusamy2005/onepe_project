@@ -1,5 +1,7 @@
+
 import '../assets/Styles/HowItWorks.css'
 import { useEffect, useRef } from 'react'
+import timelineImage from '../assets/download__1_-Picsart-AiImageEnhancer-removebg-preview.png'
 
 function HowItWorks() {
   const timelineItemsRef = useRef([])
