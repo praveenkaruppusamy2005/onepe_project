@@ -288,3 +288,71 @@ html {
     grid-template-columns: 1fr;
   }
 }
+
+/* Loading Screen Responsive */
+@media (max-width: 768px) {
+  .loading-content {
+    gap: 15px;
+  }
+
+  .loading-step {
+    gap: 15px;
+  }
+
+  .loading-step .step-number {
+    font-size: 60px;
+    width: 80px;
+    height: 80px;
+  }
+
+  .loading-step .step-arrow {
+    width: 30px;
+  }
+
+  .loading-step .step-text {
+    font-size: 18px;
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 480px) {
+  .loading-content {
+    gap: 10px;
+    padding: 0 20px;
+  }
+
+  .loading-step {
+    gap: 10px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .loading-step .step-number {
+    font-size: 48px;
+    width: 70px;
+    height: 70px;
+  }
+
+  .loading-step .step-arrow {
+    display: none;
+  }
+
+  .loading-step .step-text {
+    font-size: 16px;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+
+/* General Responsive Utilities */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 50px 0 20px;
+  }
+}

@@ -457,6 +457,7 @@
 @media (max-width: 900px) {
   .whyus {
     padding: 60px 40px;
+    max-width: 95vw;
   }
   
   .whyus-grid {
@@ -465,10 +466,10 @@
   }
 
   .whyus-item {
-    flex: 1 1 calc(50% - 12.5px);
-    min-width: 280px;
-    max-width: 400px;
-    min-height: 280px;
+    flex: 1 1 100%;
+    min-width: 100%;
+    max-width: 100%;
+    min-height: auto;
     height: auto;
   }
 
@@ -476,44 +477,101 @@
   .whyus-item.center,
   .whyus-item.right {
     margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .card-content-left {
+    max-width: 100%;
+    padding-right: 0;
+    align-items: center;
+  }
+
+  .whyus-item.left h3,
+  .whyus-item.center h3,
+  .whyus-item.right h3 {
+    text-align: center;
+  }
+
+  .whyus-item.left .sub,
+  .whyus-item.center .sub,
+  .whyus-item.right .sub {
+    text-align: center;
+  }
+
+  .card-image-right {
+    position: relative;
+    right: 0;
+    bottom: 0;
+    width: 180px;
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .whyus {
-    padding: 50px 30px;
+    padding: 50px 20px;
+    max-width: 95vw;
+    margin: -40px auto;
   }
   
   .whyus-grid {
     flex-direction: column;
     align-items: center;
-    gap: 25px;
+    gap: 20px;
   }
 
   .whyus-item {
     flex: 1 1 100%;
     width: 100%;
-    max-width: 400px;
-    min-height: 250px;
+    max-width: 100%;
+    min-height: auto;
     height: auto;
+    padding: 30px 20px;
   }
   
   .whyus-header h2 {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+
+  .whyus-header p {
+    font-size: 1rem;
+  }
+
+  .card-image-right {
+    width: 160px;
   }
 }
 
 @media (max-width: 480px) {
   .whyus {
-    padding: 40px 20px;
+    padding: 40px 15px;
+    border-radius: 24px;
   }
   
   .whyus-header h2 {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .whyus-header p {
+    font-size: 0.95rem;
   }
   
   .whyus-item {
-    padding: 25px 20px;
-    min-height: 240px;
+    padding: 25px 15px;
+    min-height: auto;
+  }
+
+  .whyus-item h3 {
+    font-size: 1.2rem;
+  }
+
+  .whyus-item .sub {
+    font-size: 0.85rem;
+  }
+
+  .card-image-right {
+    width: 140px;
   }
 }

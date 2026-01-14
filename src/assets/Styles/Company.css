@@ -167,8 +167,14 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
+  .company-container {
+    padding: 50px 30px;
+    max-width: 95vw;
+  }
+
   .categories-grid {
     grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
   }
 
   .company-header h2 {
@@ -177,7 +183,8 @@
 
   .cta-section {
     grid-template-columns: 1fr;
-    text-align: center;
+    gap: 40px;
+    padding: 50px 30px;
   }
 
   .cta-content {
@@ -190,13 +197,36 @@
 }
 
 @media (max-width: 768px) {
+  .company-container {
+    padding: 40px 20px;
+    max-width: 95vw;
+  }
+
+  .company-header {
+    margin-bottom: 40px;
+  }
+
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 16px;
+    gap: 12px;
+    margin-bottom: 60px;
+  }
+
+  .category-card {
+    padding: 20px 12px;
+  }
+
+  .category-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .category-name {
+    font-size: 0.85rem;
   }
 
   .company-header h2 {
-    font-size: 2rem;
+    font-size: 2.2rem;
   }
 
   .company-header p {
@@ -205,31 +235,76 @@
 
   .cta-section {
     padding: 40px 24px;
+    gap: 30px;
   }
 
   .cta-section h3 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
   }
 
-  .cta-section > p {
+  .cta-section > p,
+  .cta-content > p {
+    font-size: 1rem;
+  }
+
+  .cta-button {
+    padding: 14px 32px;
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
+  .company-container {
+    padding: 30px 15px;
+    border-radius: 24px;
+  }
+
   .categories-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .category-card {
+    padding: 16px 10px;
+  }
+
+  .category-icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .category-name {
+    font-size: 0.8rem;
   }
 
   .company-header h2 {
-    font-size: 1.75rem;
+    font-size: 1.8rem;
+  }
+
+  .company-header p {
+    font-size: 0.95rem;
+  }
+
+  .cta-section {
+    padding: 30px 20px;
   }
 
   .cta-section h3 {
     font-size: 1.5rem;
   }
 
+  .cta-section > p,
+  .cta-content > p {
+    font-size: 0.95rem;
+  }
+
   .cta-button {
     width: 100%;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .cta-note {
+    font-size: 0.8rem;
   }
 }

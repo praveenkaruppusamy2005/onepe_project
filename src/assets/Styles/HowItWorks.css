@@ -245,43 +245,58 @@ background: linear-gradient(135deg, #2d1f99 0%, #3b28cc 50%, #4a35e0 100%);
     grid-template-columns: 1fr;
     gap: 60px;
     padding: 60px 40px;
+    max-width: 95vw;
   }
   
   .howitworks-left {
     padding-right: 0;
-    text-align: center;
   }
   
-  .timeline {
-    padding-left: 30px;
+  .howitworks-right {
+    min-height: 500px;
+  }
+
+  .timeline-item {
+    width: 60%;
   }
 }
 
 @media (max-width: 768px) {
   .howitworks-container {
-    padding: 40px 20px;
+    padding: 50px 20px;
+    gap: 40px;
+    max-width: 95vw;
   }
   
   .howitworks-title {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
+  }
+
+  .howitworks-description {
+    font-size: 1rem;
+  }
+
+  .howitworks-right {
+    min-height: auto;
+    padding: 10px;
   }
   
   .timeline {
-    padding-left: 25px;
+    gap: 20px;
   }
-  
-  .timeline::before {
-    left: 12px;
-  }
-  
+
   .timeline-item {
-    margin-bottom: 30px;
+    width: 100%;
+    flex-direction: row !important;
+    align-self: flex-start !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
   }
-  
-  .timeline-icon {
-    left: -20px;
-    top: 50%;
-    transform: translateY(-50%);
+
+  .timeline-item:nth-child(odd) .timeline-icon,
+  .timeline-item:nth-child(even) .timeline-icon {
+    left: -38px;
+    right: auto;
   }
   
   .icon-circle {
@@ -290,23 +305,68 @@ background: linear-gradient(135deg, #2d1f99 0%, #3b28cc 50%, #4a35e0 100%);
     font-size: 0.8rem;
   }
   
-  .icon-circle::after {
-    right: -16px;
-    font-size: 0.9rem;
-  }
-  
   .card-icon {
-    width: 32px;
-    height: 32px;
+    width: 40px;
+    height: 40px;
+  }
+
+  .step-title {
+    font-size: 0.95rem;
+  }
+
+  .step-description {
+    font-size: 0.8rem;
   }
   
   .guarantee-features {
     grid-template-columns: 1fr;
   }
+
+  .guarantee-section {
+    padding: 25px 20px;
+  }
+
+  .guarantee-title {
+    font-size: 1.4rem;
+  }
 }
 
 @media (max-width: 480px) {
+  .howitworks-container {
+    padding: 40px 15px;
+    border-radius: 24px;
+  }
+
   .howitworks-title {
-    font-size: 2rem;
+    font-size: 1.8rem;
+  }
+
+  .howitworks-description {
+    font-size: 0.95rem;
+  }
+
+  .timeline-content {
+    padding: 14px;
+  }
+
+  .card-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .guarantee-section {
+    padding: 20px 15px;
+  }
+
+  .guarantee-title {
+    font-size: 1.2rem;
+  }
+
+  .guarantee-description {
+    font-size: 0.9rem;
+  }
+
+  .feature-item {
+    font-size: 0.8rem;
   }
 }
