@@ -286,14 +286,28 @@ background: linear-gradient(135deg, #2d1f99 0%, #3b28cc 50%, #4a35e0 100%);
   }
 
   .timeline-item {
-    width: 100%;
-    flex-direction: row !important;
-    align-self: flex-start !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
+    width: 80%;
   }
 
-  .timeline-item:nth-child(odd) .timeline-icon,
+  /* Keep zigzag pattern on mobile - odd items left, even items right */
+  .timeline-item:nth-child(odd) {
+    align-self: flex-start;
+    margin-left: 0;
+    flex-direction: row;
+  }
+
+  .timeline-item:nth-child(even) {
+    align-self: flex-end;
+    margin-right: 0;
+    flex-direction: row-reverse;
+  }
+
+  /* Position circles - odd on right side, even on left side */
+  .timeline-item:nth-child(odd) .timeline-icon {
+    right: -38px;
+    left: auto;
+  }
+
   .timeline-item:nth-child(even) .timeline-icon {
     left: -38px;
     right: auto;
@@ -345,6 +359,10 @@ background: linear-gradient(135deg, #2d1f99 0%, #3b28cc 50%, #4a35e0 100%);
     font-size: 0.95rem;
   }
 
+  .timeline-item {
+    width: 85%;
+  }
+
   .timeline-content {
     padding: 14px;
   }
@@ -352,6 +370,21 @@ background: linear-gradient(135deg, #2d1f99 0%, #3b28cc 50%, #4a35e0 100%);
   .card-icon {
     width: 36px;
     height: 36px;
+  }
+
+  .icon-circle {
+    width: 24px;
+    height: 24px;
+    font-size: 0.7rem;
+  }
+
+  /* Adjust circle positions for smaller screens */
+  .timeline-item:nth-child(odd) .timeline-icon {
+    right: -32px;
+  }
+
+  .timeline-item:nth-child(even) .timeline-icon {
+    left: -32px;
   }
 
   .guarantee-section {
